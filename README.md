@@ -7,6 +7,13 @@
 > Fena olmayan bir proje ama sadetinde bir hub - haliyle ezbere bildiğim için 2 dakikada kurdum node'u, arkada çalışsın.
 
 > TOPLULUK KANALLARI: [Sohbet Kanalımız](https://t.me/RuesChat) - [Duyurular ve Gelişmeler](https://t.me/RuesAnnouncement) - [Whatsapp](https://whatsapp.com/channel/0029VaBcj7V1dAw1H2KhMk34) - [Pryzm Telegram](https://discord.gg/YUFuvWT7)
+>
+> address: pryzm10f4dtrfsjras0q977pn2tu7qj95hm9h8zr9zwe
+  name: eckeskin
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A0ACZWVXEJETJGWyeAfzkbzOTO0jiB34rIsDXfRjPm+K"}'
+  type: local
+> mnemonicler defterde
+> txid: 5B8B9C71E7701C362C6AAF08E77CE95FB8B5E49ED58F38A7F8B531AEC1514551
 
 #
 
@@ -173,6 +180,24 @@ pryzmd tx staking create-validator \
 --gas auto \
 --gas-prices 0.015upryzm \
 -y
+========================benim bilgiler ile düzenlenmis hali=======
+pryzmd tx staking create-validator \
+--amount 1000000upryzm \
+--pubkey $(pryzmd tendermint show-validator) \
+--moniker "eckeskinNode" \
+--details "Rues Community" \
+--website "https://github.com/eckeskin/" \
+--chain-id indigo-1 \
+--commission-rate 0.1 \
+--commission-max-rate 0.20 \
+--commission-max-change-rate 0.03 \
+--min-self-delegation 1 \
+--from pryzm10f4dtrfsjras0q977pn2tu7qj95hm9h8zr9zwe \
+--gas-adjustment 1.5 \
+--gas auto \
+--gas-prices 0.015upryzm \
+-y
+======================================================
 # Moniker = Validatör İsminiz olsun
 # identity eğer varsa keybase idiniz olsun yoksa o satırı silin
 # website yoksa "tırnakların" içini silin veya kendi github koyun
