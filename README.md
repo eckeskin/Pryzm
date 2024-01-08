@@ -53,6 +53,16 @@ tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
 mkdir -p $HOME/go/bin
 mv pryzmd $HOME/go/bin
 
+#yukaridaki kisim güncel degil gibi, güncel olabilecek olan skriptleri ekliyorum (calistirma sirasina göre kopyalamadim.)
+wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-darwin-amd64.tar.gz
+tar -xzvf  pryzmd-0.10.0-darwin-amd64.tar.gz
+
+systemctl stop pryzmd
+wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-amd64  -> bu kisim da önemli
+chmod +x pryzmd-0.10.0-linux-amd64
+mv pryzmd-0.10.0-linux-amd64 $(which pryzmd)  -> (wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-darwin-amd64.tar.gz) bu link ile önce przymd dosyasini indirmek lazim
+systemctl restart pryzmd
+
 # intialize işlemleri
 pryzmd config node tcp://localhost:${PRYZM_PORT}657
 pryzmd config keyring-backend os
@@ -197,5 +207,9 @@ pryzmd keys list
 # cüzdan silme
 pryzmd keys delete <Cüzdanİsmi>
 ```
+
+# loglara bakma
+sudo journalctl -u pryzmd -f
+
 
 > Daha eklerim aklıma geldikçe
